@@ -20,7 +20,7 @@ setup_params = dict(
 	packages=setuptools.find_packages(),
 	namespace_packages=['jaraco'],
 	entry_points = {
-        'keyring backends': [
+        'keyring.backends': [
             'remote agent = jaraco.keyring',
         ],
     },
