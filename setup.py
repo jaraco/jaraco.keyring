@@ -19,6 +19,11 @@ setup_params = dict(
 	url="https://bitbucket.org/jaraco/jaraco.keyring",
 	packages=setuptools.find_packages(),
 	namespace_packages=['jaraco'],
+	entry_points = {
+        'keyring backends': [
+            'remote agent = jaraco.keyring',
+        ],
+    },
 	setup_requires=[
 		'hgtools',
 		'pytest-runner',
