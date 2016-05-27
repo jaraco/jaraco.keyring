@@ -3,12 +3,13 @@
 # Project skeleton maintained at https://github.com/jaraco/skeleton
 
 import io
+import sys
 
 import setuptools
 
-with io.open('README.txt', encoding='utf-8') as readme:
+with io.open('README.rst', encoding='utf-8') as readme:
 	long_description = readme.read()
-with io.open('CHANGES.txt', encoding='utf-8') as changes:
+with io.open('CHANGES.rst', encoding='utf-8') as changes:
 	long_description += '\n\n' + changes.read()
 
 needs_pytest = {'pytest', 'test'}.intersection(sys.argv)
@@ -35,23 +36,24 @@ setup_params = dict(
 	install_requires=[
 		'requests_unixsocket',
 	],
-	entry_points = {
-		'keyring.backends': [
-			'remote agent = jaraco.keyring',
-		],
-	},
 	setup_requires=[
 		'setuptools_scm>=1.9',
 	] + pytest_runner + sphinx + wheel,
 	tests_require=[
 		'pytest',
 	],
-	classifiers = [
+	classifiers=[
 		"Development Status :: 5 - Production/Stable",
 		"Intended Audience :: Developers",
+		"License :: OSI Approved :: MIT License",
 		"Programming Language :: Python :: 2.7",
 		"Programming Language :: Python :: 3",
 	],
+	entry_points = {
+		'keyring.backends': [
+			'remote agent = jaraco.keyring',
+		],
+	},
 )
 if __name__ == '__main__':
 	setuptools.setup(**setup_params)
