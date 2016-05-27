@@ -8,7 +8,7 @@ script:
 - python setup.py test
 branches:
   except:
-    - skeleton
+  - skeleton
 deploy:
   provider: pypi
   on:
@@ -16,5 +16,6 @@ deploy:
     all_branches: true
     python: 3.5
   user: jaraco
-  # supply password with `travis encrypt --add deploy.password`
   distributions: release
+  password:
+    secure: VNzEEF5+F7FrP8B+FvHzdw7CTUzewBDPOxHxvumQxjQ8kZssEMj1ZKf4QQNgx4wphINesKiIyO4fYoBr6yzWrxryNZKxj1nehvMwNbBTjaQPXHgOQA7nEQwTHxiNOsB1yrVcVgkGzg169EBVr7PLvxAUrS6SGY70tEhqDJn0eWUK2EmCsafc7d16Lkf6jjsHGXTkIklv3DMBYb0gB3SXmgaQOpjtE0Z7SgiP5VaPx21ber2RjjRtbIWFJez/MKjIXEdsFzQmH/QnSrA3/+4xre7hNx7zY5Txk9eA2WoJI4GPm6yhfgxXRzW4tK+V0W0Ejw9JTw5JC3ErlupS88ZyjFARwcXCnlspiCtgwRtBaQiYlfHZBSlBR8yAw7DJrPtQOzaQYWnQg8YlnHXCQenoWso/jLo9hHL8pDbJRBPUJyJCohI0btwd1QqRq4FMPeD1cdx9oiN/LxiY/IVOVC4oJHK8n72T9Ny9vg9BPgCeZ51t8pw+PqQRooiyC5tPK7jui5zljCgpH/vjpKC/QtzlLG1VQpySiYUXBO656t81Oc+IGc7N8EziL1QoeU0HDLyyOm2+ThOsOO64Tot7x8d18JZ3dvFHyi/UPBZ8nWGGKMSMEeIfJS6KMa0W8iRWYhw8PIn6gtGAo/PQW1jbZ5BFuIBUpORWYjyr78WLRK9Hp/0=
