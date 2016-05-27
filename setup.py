@@ -23,10 +23,10 @@ setup_params = dict(
 		'requests_unixsocket',
 	],
 	entry_points = {
-        'keyring.backends': [
-            'remote agent = jaraco.keyring',
-        ],
-    },
+		'keyring.backends': [
+			'remote agent = jaraco.keyring',
+		],
+	},
 	setup_requires=[
 		'hgtools',
 		'pytest-runner',
