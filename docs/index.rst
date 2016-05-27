@@ -1,4 +1,4 @@
-Welcome to skeleton documentation!
+Welcome to jaraco.keyring documentation!
 ========================================
 
 .. toctree::
@@ -7,7 +7,12 @@ Welcome to skeleton documentation!
    history
 
 
-.. automodule:: skeleton
+.. automodule:: jaraco.keyring
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: jaraco.keyring.server
     :members:
     :undoc-members:
     :show-inheritance:
