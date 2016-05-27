@@ -1,21 +1,25 @@
-import requests
+import urllib.parse
+
 import keyring.backend
+import requests_unixsocket
 
-class RemoteAgent(keyring.backend.Backend):
-	_url_tmpl = 'http://localhost:4273/{service}/{username}'
+session = requests_unixsocket.Session()
 
-	@classmethod
-	def priority(cls):
-		return 3.1
+class RemoteAgent(keyring.backend.KeyringBackend):
+	path = '/tmp/keyring.sock'
+	path_enc = urllib.parse.quote(path, safe='')
+	_url_tmpl = 'http+unix://%(path_enc)s/{service}/{username}' % locals()
+
+	priority = 0
 
 	def get_password(self, service, username):
 		url = self._url_tmpl.format(**locals())
-		return requests.get(url).text
+		return session.get(url).text
 
 	def set_password(self, service, username, password):
 		url = self._url_tmpl.format(**locals())
-		requests.post(url, data=password)
+		session.post(url, data=password)
 
 	def delete_password(self, service, username):
 		url = self._url_tmpl.format(**locals())
-		requests.delete(url).raise_for_status()
+		session.delete(url).raise_for_status()

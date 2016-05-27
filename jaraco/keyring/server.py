@@ -3,10 +3,9 @@ import os
 import keyring
 import cherrypy
 
+
 class Keyring:
-	@cherrypy.expose
-	def default(self, service, username):
-		return getattr(self, cherrypy.request.method)(service, username)
+	exposed = True
 
 	def GET(self, service, username):
 		return keyring.get_password(service, username)
@@ -26,7 +25,10 @@ class Keyring:
 			'global': {
 				'server.socket_host': '::1',
 				'server.socket_port': int(os.environ.get('PORT', 4273)),
-			}
+			},
+			'/': {
+				'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+			},
 		}
 		cherrypy.quickstart(cls(), config=config)
 

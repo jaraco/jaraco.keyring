@@ -19,6 +19,9 @@ setup_params = dict(
 	url="https://bitbucket.org/jaraco/jaraco.keyring",
 	packages=setuptools.find_packages(),
 	namespace_packages=['jaraco'],
+	install_requires=[
+		'requests_unixsocket',
+	],
 	entry_points = {
         'keyring.backends': [
             'remote agent = jaraco.keyring',
