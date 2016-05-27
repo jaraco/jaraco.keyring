@@ -6,6 +6,9 @@ import requests_unixsocket
 session = requests_unixsocket.Session()
 
 class RemoteAgent(keyring.backend.KeyringBackend):
+	"""
+	>>> agent = RemoteAgent()
+	"""
 	path = '/tmp/keyring.sock'
 	path_enc = urllib.parse.quote(path, safe='')
 	_url_tmpl = 'http+unix://%(path_enc)s/{service}/{username}' % locals()

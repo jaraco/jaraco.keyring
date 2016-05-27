@@ -36,6 +36,7 @@ setup_params = dict(
 	install_requires=[
 		'requests_unixsocket',
 		'cherrypy',
+		'keyring',
 	],
 	setup_requires=[
 		'setuptools_scm>=1.9',
