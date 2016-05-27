@@ -35,6 +35,7 @@ setup_params = dict(
 	namespace_packages=name.split('.')[:-1],
 	install_requires=[
 		'requests_unixsocket',
+		'cherrypy',
 	],
 	setup_requires=[
 		'setuptools_scm>=1.9',
