@@ -5,6 +5,7 @@ import requests_unixsocket
 
 session = requests_unixsocket.Session()
 
+
 class RemoteAgent(keyring.backend.KeyringBackend):
 	"""
 	>>> agent = RemoteAgent()
