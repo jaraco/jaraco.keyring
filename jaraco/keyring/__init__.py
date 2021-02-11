@@ -7,23 +7,24 @@ session = requests_unixsocket.Session()
 
 
 class RemoteAgent(keyring.backend.KeyringBackend):
-	"""
-	>>> agent = RemoteAgent()
-	"""
-	path = '/tmp/keyring.sock'
-	path_enc = urllib.parse.quote(path, safe='')
-	_url_tmpl = 'http+unix://%(path_enc)s/{service}/{username}' % locals()
+    """
+    >>> agent = RemoteAgent()
+    """
 
-	priority = 0
+    path = '/tmp/keyring.sock'
+    path_enc = urllib.parse.quote(path, safe='')
+    _url_tmpl = 'http+unix://%(path_enc)s/{service}/{username}' % locals()
 
-	def get_password(self, service, username):
-		url = self._url_tmpl.format(**locals())
-		return session.get(url).text
+    priority = 0
 
-	def set_password(self, service, username, password):
-		url = self._url_tmpl.format(**locals())
-		session.post(url, data=password)
+    def get_password(self, service, username):
+        url = self._url_tmpl.format(**locals())
+        return session.get(url).text
 
-	def delete_password(self, service, username):
-		url = self._url_tmpl.format(**locals())
-		session.delete(url).raise_for_status()
+    def set_password(self, service, username, password):
+        url = self._url_tmpl.format(**locals())
+        session.post(url, data=password)
+
+    def delete_password(self, service, username):
+        url = self._url_tmpl.format(**locals())
+        session.delete(url).raise_for_status()
