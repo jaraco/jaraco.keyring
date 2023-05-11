@@ -13,9 +13,9 @@ skip-string-normalization = true
 #
 #[tool.pytest-enabler.mypy]
 #addopts = "--mypy"
-#
-#[tool.pytest-enabler.flake8]
-#addopts = "--flake8"
 
 [tool.pytest-enabler.cov]
 addopts = "--cov"
+
+[tool.pytest-enabler.ruff]
+addopts = "--ruff"
