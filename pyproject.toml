@@ -8,14 +8,7 @@ skip-string-normalization = true
 [tool.setuptools_scm]
 
 # Disable plugins as workaround for pytest-dev/pytest#8332
-#[tool.pytest-enabler.black]
-#addopts = "--black"
-#
-#[tool.pytest-enabler.mypy]
-#addopts = "--mypy"
+[tool.pytest-enabler.black]
 
-[tool.pytest-enabler.cov]
-addopts = "--cov"
-
-[tool.pytest-enabler.ruff]
-addopts = "--ruff"
+# Disable plugins as workaround for pytest-dev/pytest#8332
+[tool.pytest-enabler.mypy]
